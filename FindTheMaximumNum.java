@@ -2,8 +2,23 @@ package CompareTo;
 
 import java.util.*;
 
-public class FindTheMaximumNum  {
+public class FindTheMaximumNum<T extends Comparable<T>>  {
 
+	T A,B,C,D;
+	public FindTheMaximumNum(T A, T B, T C,T D) {
+		this.A=A;
+		this.B=B;
+		this.C=C;
+		this.D=D;
+	}
+	public T maxThreeInterFloatString() {
+		return FindTheMaximumNum.maximum(A, B, C);
+	}
+	
+	public T maxForeInterFloatStringNew() {
+		return FindTheMaximumNum.maximum1(A, B, C, D);
+		
+	}
 	static Scanner sc = new Scanner(System.in);
 
 	/*
@@ -86,18 +101,31 @@ public class FindTheMaximumNum  {
 		System.out.println("The maximum String value is : " + max);
 		return max;
 	}
+	/*
+	 * UC5
+	 * 
+	 */
+	
+	public static <T>void printMax(T a,T B,T C,T max) {
+		System.out.println("This max element is : "+max);
+	}
+	
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
-		FindTheMaximumNum g = new FindTheMaximumNum();
+//		FindTheMaximumNum g = new FindTheMaximumNum();
 		
 //		g.maxmumIntegerNum(20, 5, 30);// UC1
 //		g.maxmumFloatNum(50.0f, 20.0f, 30.0f);// UC2
 //		g.maxmumStringNum("pear", "apple", "orange");// UC3
-     
-//UC4
-		g.maximum(20, 5, 30);
-		g.maximum(50.0f, 20.0f, 30.0f);
-		g.maximum("pear", "apple", "orange");
-
+// UC4 TO UC5
+//		g.maximum(20, 5, 30);
+//		g.maximum(50.0f, 20.0f, 30.0f);
+//		g.maximum("pear", "apple", "orange");
+		
+		// UC4 TO UC5
+		new FindTheMaximumNum(2,450,5,6).maxThreeInterFloatString();
+		new FindTheMaximumNum(20.0f,30.0f,5.0f,6.0f).maxForeInterFloatStringNew();
+		new FindTheMaximumNum("Pear", "apple", "orange","Apple").maxForeInterFloatStringNew();
 
 	}
 
